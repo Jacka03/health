@@ -7,6 +7,7 @@
     <insert id="add" parameterType="com.example.pojo.CheckGroup">
 --         获取自增产生的id
         <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
+--             返回刚产生的id
             select LAST_INSERT_ID()
         </selectKey>
         insert into t_checkgroup(id, code, name, helpcode, sex, remark, attention)
@@ -67,6 +68,10 @@
 
     <select id="findCheckItemIdsByCheckGroupId" resultType="java.lang.Integer">
         select checkitem_id from t_checkgroup_checkitem where checkgroup_id = #{id}
+    </select>
+
+    <select id="findAll" resultType="com.example.pojo.CheckGroup">
+        select * from t_checkgroup
     </select>
 
 

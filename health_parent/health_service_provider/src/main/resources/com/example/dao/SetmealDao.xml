@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.dao.SetmealDao">
+
+    <!--插入套餐数据-->
+    <insert id="add" parameterType="com.example.pojo.CheckGroup">
+--         获取自增产生的id
+        <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
+            select LAST_INSERT_ID()
+        </selectKey>
+        insert into t_setmeal(id, code, name, helpcode, sex, remark, attention, age, price, img)
+        values(#{id}, #{code}, #{name}, #{helpCode}, #{sex}, #{remark}, #{attention}, #{age}, #{price}, #{img})
+
+    </insert>
+
+    <!--插入套餐和检查组-->
+    <insert id="setSetmealAndCheckGroup" parameterType="map">
+        insert into t_setmeal_checkgroup(setmeal_id, checkgroup_id)
+        values(#{setmealId}, #{checkGroupId})
+    </insert>
+    <select id="findByCondition" resultType="com.example.pojo.Setmeal">
+        select * from t_setmeal
+        <if test="value != null and value.length > 0">
+            where code = #{queryString} or name = #{queryString} or helpCode = #{queryString}
+        </if>
+    </select>
+
+
+</mapper>

@@ -85,6 +85,20 @@ public class CheckGroupController {
 
     }
 
+    @RequestMapping("/findAll")
+    public Result findAll() {
+        List<CheckGroup> result = null;
+        try{
+            result = checkGroupService.findAll();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Result(false, MessageConstant.QUERY_CHECKGROUP_FAIL);
+        }
+        return new Result(true, MessageConstant.QUERY_CHECKGROUP_SUCCESS, result);
+
+    }
+
     // 删除啊检查组，
     // @RequestMapping("/delete")
     // public Result delete(Integer id) {
