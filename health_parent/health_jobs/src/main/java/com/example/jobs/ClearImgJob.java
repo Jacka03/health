@@ -4,7 +4,6 @@ import com.example.constant.RedisConstant;
 import com.example.utils.AliyunUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import redis.clients.jedis.JedisPool;
-
 import java.util.Set;
 
 public class ClearImgJob {

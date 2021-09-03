@@ -21,7 +21,7 @@
     </delete>
 
     <select id="findCountByCheckItemId" parameterType="Integer" resultType="Integer">
-        select count(*) from t_checkgroup_checkitem where checkitem_id = #{checkitem_id} limit 1;
+        select count(*) from t_checkgroup_checkitem where checkitem_id = #{checkitem_id} limit 1
     </select>
     <select id="findById" resultType="com.example.pojo.CheckItem">
         select * from t_checkitem where id = #{id}
