@@ -17,8 +17,9 @@ public class AliyunUtil {
     public static String endpoint = "https://oss-cn-beijing.aliyuncs.com";
 
     // 阿里云账号AccessKey拥有所有API的访问权限，风险很高。强烈建议您创建并使用RAM用户进行API访问或日常运维，请登录RAM控制台创建RAM用户。
-    public static String accessKeyId = "LTAI5tRh3KWbYH1AwDn5s4aP";
-    public static String accessKeySecret = "MGFvu4yFVdq8znbKFWpJ7nCISIcjfh";
+    // 自己传自己的服务器的id 和 秘钥
+    public static String accessKeyId = "";
+    public static String accessKeySecret = "";
 
 
     public static void upload2Aliyun(String filePath,String fileName){
